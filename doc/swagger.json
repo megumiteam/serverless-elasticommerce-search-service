@@ -1,0 +1,97 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Elasticommerce Search Service",
+        "description": "The Elasticommerce Search Service API",
+        "version": "1.0.0"
+    },
+    "host": "api.example.com",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/dev",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/searchword": {
+            "get": {
+                "summary": "Get information about sales by searchword",
+                "description": "The searchword endpoint returns information about sales by searchword.\n",
+                "parameters": [
+                    {
+                        "name": "searchword",
+                        "in": "query",
+                        "description": ".",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "start_date",
+                        "in": "query",
+                        "description": ".",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "description": ".",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Searchword"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of sales infomation"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Post information about sales by searchword",
+                "description": "The searchword endpoint posts information about sales by searchword.\n",
+                "parameters": [
+                    {
+                        "name": "searchword",
+                        "in": "query",
+                        "description": ".",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "totalvalue",
+                        "in": "query",
+                        "description": ".",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "productname",
+                        "in": "query",
+                        "description": ".",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": ".",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "tags": [
+                    "Searchword"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of sales infomation"
+                    }
+                }
+            }
+        }
+    }
+}
