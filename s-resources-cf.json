@@ -1,0 +1,101 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "The AWS CloudFormation template for this Serverless application's resources outside of Lambdas and Api Gateway",
+  "Resources": {
+    "IamRoleLambda": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Path": "/"
+      }
+    },
+    "IamPolicyLambda": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "${stage}-${project}-lambda",
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Resource": "arn:aws:logs:${region}:*:*"
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "*"
+              ],
+              "Resource": "arn:aws:dynamodb:${region}:*:table/${project}-${stage}-ProductSerarchTotalvalue"
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "IamRoleLambda"
+          }
+        ]
+      }
+    },
+    "ProductSerarchTotalvalueDynamoDBTable" : {
+      "Type" : "AWS::DynamoDB::Table",
+      "Properties" : {
+        "AttributeDefinitions" : [
+          {
+            "AttributeName" : "SearchWord",
+            "AttributeType" : "S"   
+          },
+          {
+            "AttributeName" : "Date",
+            "AttributeType" : "S"
+          }
+        ],
+        "KeySchema" : [
+          {
+            "AttributeName" : "SearchWord",
+            "KeyType" : "HASH"
+          },
+          {
+            "AttributeName" : "Date",
+            "KeyType" : "RANGE"
+          }
+        ],
+        "ProvisionedThroughput" : {
+          "ReadCapacityUnits" : "5",
+          "WriteCapacityUnits" : "5"
+        },
+        "TableName" : "${project}-${stage}-ProductSerarchTotalvalue"
+      }
+    }
+  },
+  "Outputs": {
+    "IamRoleArnLambda": {
+      "Description": "ARN of the lambda IAM role",
+      "Value": {
+        "Fn::GetAtt": [
+          "IamRoleLambda",
+          "Arn"
+        ]
+      }
+    }
+  }
+}

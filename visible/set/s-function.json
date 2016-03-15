@@ -1,0 +1,37 @@
+{
+  "name": "set",
+  "customName": false,
+  "customRole": false,
+  "handler": "set/handler.handler",
+  "timeout": 6,
+  "memorySize": 1024,
+  "custom": {
+    "excludePatterns": [],
+    "envVars": []
+  },
+  "endpoints": [
+    {
+      "path": "set/totalvalue/{totalvalue}/word/{word}/count/{count}/productname/{productname}",
+      "method": "GET",
+      "type": "AWS",
+      "authorizationType": "none",
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": "$${apiRequestTemplate}",
+      "responses": {
+        "400": {
+          "statusCode": "400"
+        },
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {},
+          "responseModels": {},
+          "responseTemplates": {
+            "application/json": ""
+          }
+        }
+      }
+    }
+  ],
+  "events": []
+}
