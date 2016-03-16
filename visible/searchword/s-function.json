@@ -17,7 +17,14 @@
       "authorizationType": "none",
       "apiKeyRequired": false,
       "requestParameters": {},
-      "requestTemplates": "$${apiRequestTemplate}",
+      "requestTemplates": {
+        "application/json": {
+          "httpMethod": "$context.httpMethod",
+          "searchword": "$input.params('searchword')",
+          "start_date": "$input.params('start_date')",
+          "end_date": "$input.params('end_date')"
+        }
+      },
       "responses": {
         "400": {
           "statusCode": "400"
@@ -39,7 +46,15 @@
       "authorizationType": "none",
       "apiKeyRequired": false,
       "requestParameters": {},
-      "requestTemplates": "$${apiRequestTemplate}",
+      "requestTemplates": {
+        "application/json": {
+          "httpMethod": "$context.httpMethod",
+          "totalvalue": "$input.params('totalvalue')",
+          "word": "$input.params('word')",
+          "count": "$input.params('count')",
+          "productname": "$input.params('productname')"
+        }
+      },
       "responses": {
         "400": {
           "statusCode": "400"

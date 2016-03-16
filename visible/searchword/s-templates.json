@@ -1,10 +1,15 @@
 {
-  "apiRequestTemplate": {
+  "apiPostRequestTemplate": {
     "application/json": {
       "totalvalue": "$input.params('totalvalue')",
       "word": "$input.params('word')",
       "count": "$input.params('count')",
       "productname": "$input.params('productname')"
+    }
+  },
+  "apiGetRequestTemplate": {
+    "application/json": {
+      "panpanpan": "$input.params('panpanpan')"
     }
   }
 }
