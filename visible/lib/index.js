@@ -11,15 +11,12 @@ const stage = process.env.SERVERLESS_STAGE;
 const projectName = process.env.SERVERLESS_PROJECT_NAME;
 const table = projectName + '-' + stage + '-ProductSerarchTotalvalue';
 
-module.exports.searchword = function(event, cb) {
-  
+module.exports.searchword = function(event, cb) { 
   if ( event.httpMethod === 'GET' ) {
     GetResult(event);
   } else {
     PostResult(event, cb);
   }
-
-  return cb(null, event);
 };
 
 function GetResult(event) {
