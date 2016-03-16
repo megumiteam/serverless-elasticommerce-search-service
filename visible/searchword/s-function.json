@@ -1,8 +1,8 @@
 {
-  "name": "set",
+  "name": "searchword",
   "customName": false,
   "customRole": false,
-  "handler": "set/handler.handler",
+  "handler": "searchword/handler.handler",
   "timeout": 6,
   "memorySize": 1024,
   "custom": {
@@ -11,8 +11,30 @@
   },
   "endpoints": [
     {
-      "path": "set/totalvalue/{totalvalue}/word/{word}/count/{count}/productname/{productname}",
+      "path": "searchword",
       "method": "GET",
+      "type": "AWS",
+      "authorizationType": "none",
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": "$${apiRequestTemplate}",
+      "responses": {
+        "400": {
+          "statusCode": "400"
+        },
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {},
+          "responseModels": {},
+          "responseTemplates": {
+            "application/json": ""
+          }
+        }
+      }
+    },
+    {
+      "path": "searchword",
+      "method": "POST",
       "type": "AWS",
       "authorizationType": "none",
       "apiKeyRequired": false,
