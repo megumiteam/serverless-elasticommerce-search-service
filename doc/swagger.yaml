@@ -49,22 +49,12 @@ paths:
       description: |
         検索ワードに対する商品情報と合計金額を登録します
       parameters:
-        - name: searchword
-          in: query
-          description: 検索ワード.
-          required: true
-          type: string
         - name: productinfo
           in: body
           description: 商品情報
           required: true
           schema:
-            $ref: '#/definitions/productinfo'
-        - name: totalvalue
-          in: query
-          description: 売上金額.
-          required: true
-          type: number
+            $ref: '#/definitions/searchword'
       tags:
         - Searchword
       responses:
