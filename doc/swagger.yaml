@@ -18,8 +18,7 @@ paths:
   /searchword:
     get:
       summary: 検索ワードに対する売上データをJSONで取得します。
-      description: |
-        開始日と終了日を指定してその期間の売上データを取得します。検索ワードを直接指定しての検索も可能です
+      description: 開始日と終了日を指定してその期間の売上データを取得します。検索ワードを直接指定しての検索も可能です
       parameters:
         - name: searchword
           in: query
@@ -55,18 +54,17 @@ paths:
           description: 検索ワード.
           required: true
           type: string
+        - name: productinfo
+          in: body
+          description: 商品情報
+          required: true
+          schema:
+            $ref: '#/definitions/productinfo'
         - name: totalvalue
           in: query
           description: 売上金額.
           required: true
           type: number
-        - name: productinfo
-          in: query
-          description: 商品情報.
-          required: true
-          type: array
-          items:
-            $ref: '#/definitions/productinfo'
       tags:
         - Searchword
       responses:
@@ -81,7 +79,7 @@ definitions:
       product_id:
         type: string
         description: 商品ID
-      ddcount:
+      count:
         type: string
         description: 購入数.
   searchword:
