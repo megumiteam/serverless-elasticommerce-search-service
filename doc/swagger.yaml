@@ -17,58 +17,85 @@ produces:
 paths:
   /searchword:
     get:
-      summary: Get information about sales by searchword
+      summary: 検索ワードに対する売上データをJSONで取得します。
       description: |
-        The searchword endpoint returns information about sales by searchword.
+        開始日と終了日を指定してその期間の売上データを取得します。検索ワードを直接指定しての検索も可能です
       parameters:
         - name: searchword
           in: query
-          description: .
+          description: 検索ワード
           required: false
           type: string
         - name: start_date
           in: query
-          description: .
+          description: 開始日
           required: true
-          type: string
+          type: number
         - name: end_date
           in: query
-          description: .
+          description: 終了日.
           required: true
-          type: string
+          type: number
       tags:
         - Searchword
       responses:
         200:
-          description: An array of sales infomation
+          description: 売上データのJSON
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/searchword'
     post:
-      summary: Post information about sales by searchword
+      summary: 検索ワードに対する売上データを登録します
       description: |
-        The searchword endpoint posts information about sales by searchword.
+        検索ワードに対する商品情報と合計金額を登録します
       parameters:
         - name: searchword
           in: query
-          description: .
+          description: 検索ワード.
           required: true
           type: string
         - name: totalvalue
           in: query
-          description: .
+          description: 売上金額.
           required: true
           type: number
-        - name: productname
+        - name: productinfo
           in: query
-          description: .
+          description: 商品情報.
           required: true
-          type: string
-        - name: count
-          in: query
-          description: .
-          required: true
-          type: number
+          type: array
+          items:
+            $ref: '#/definitions/productinfo'
       tags:
         - Searchword
       responses:
         200:
-          description: An array of sales infomation
+          description: 空のJSONが返ってくる
+        400:
+          description: ErrorのJSONが返ってくる
+definitions:
+  productinfo:
+    type: object
+    properties:
+      product_id:
+        type: string
+        description: 商品ID
+      ddcount:
+        type: string
+        description: 購入数.
+  searchword:
+    type: object
+    properties:
+      searchword:
+        type: string
+        description: 検索ワード
+      productinfo:
+        type: array
+        description: 購入情報.
+        items:
+          $ref: '#/definitions/productinfo'
+      totalvalue:
+        type: number
+        description: 売上金額.
 
