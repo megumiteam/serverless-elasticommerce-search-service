@@ -12,6 +12,7 @@
   "keywords": [],
   "devDependencies": {},
   "dependencies": {
+    "serverless-cors-plugin": "^0.3.2",
     "serverless-helpers-js": "~0.1.0"
   }
 }
