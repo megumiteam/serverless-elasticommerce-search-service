@@ -5,8 +5,22 @@
 It was made using [Serverless Framework](http://docs.serverless.com/v0.5.0/docs).
 The relevance of search results and sales results to visualize.
 
+## Architecture
+<img src="https://raw.githubusercontent.com/megumiteam/serverless-elasticommerce-search-service/master/screenshot-2.png" title="screenshot"/>
+
 ## Setup
 ### Install Serverless Framework
+Setup your aws account profile in your local.
+```
+$ mkdir ~/.aws
+$ vi ~/.aws/credentials
+--
+[default]
+aws_access_key_id=<<access key>>
+aws_secret_access_key=<<secret key>>
+--
+```
+
 Make sure you have the [Serverless Framework](http://www.serverless.com) installed and you're using Node.js v4.0+. 
 ```
 npm install serverless -g
@@ -36,9 +50,6 @@ Deploy your functions and endpoints:
 ```
 serverless dash deploy
 ```
-
-## Architecture
-<img src="https://raw.githubusercontent.com/megumiteam/serverless-elasticommerce-search-service/master/screenshot-2.png" title="screenshot"/>
 
 ## Sample Screen
 <img src="https://raw.githubusercontent.com/megumiteam/serverless-elasticommerce-search-service/master/screenshot-1.png" title="screenshot"/>
