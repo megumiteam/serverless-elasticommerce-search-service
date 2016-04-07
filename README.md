@@ -50,6 +50,13 @@ Deploy your functions and endpoints:
 ```
 serverless dash deploy
 ```
+
+Endpoint information is displayed:
+```
+Serverless:   GET - searchword - https://example.com/dev/searchword  
+Serverless:   POST - searchword - https://example.com/dev/searchword  
+```
+
 ### Setting WooCommerce
 
 ## Sample Screen
