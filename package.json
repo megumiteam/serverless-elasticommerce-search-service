@@ -9,5 +9,8 @@
     "type": "git",
     "url": "git://github.com/"
   },
-  "dependencies": {}
+  "dependencies": {
+    "aws-sdk": "^2.2.25",
+    "serverless-helpers-js": "~0.0.3"
+  }
 }
