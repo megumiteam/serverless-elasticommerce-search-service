@@ -10,3 +10,5 @@ The relevance of search results and sales results to visualize.
 ## Sample Screen
 <img src="https://raw.githubusercontent.com/megumiteam/serverless-elasticommerce-search-service/master/screenshot-1.png" title="screenshot"/>
 
+## Setup
+### Install Serverless Framework
