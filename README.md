@@ -9,7 +9,7 @@ The relevance of search results and sales results to visualize.
 <img src="https://raw.githubusercontent.com/megumiteam/serverless-elasticommerce-search-service/master/screenshot-2.png" title="screenshot"/>
 
 ## Setup
-### Install Serverless Framework
+### Backend API
 Setup your aws account profile in your local.
 ```
 $ mkdir ~/.aws
@@ -50,6 +50,7 @@ Deploy your functions and endpoints:
 ```
 serverless dash deploy
 ```
+### Setting WooCommerce
 
 ## Sample Screen
 <img src="https://raw.githubusercontent.com/megumiteam/serverless-elasticommerce-search-service/master/screenshot-1.png" title="screenshot"/>
