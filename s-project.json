@@ -6,7 +6,5 @@
   "author": "",
   "description": "A Slick New Serverless Project",
   "custom": {},
-  "plugins": [
-    "serverless-serve"
-  ]
+  "plugins": []
 }
