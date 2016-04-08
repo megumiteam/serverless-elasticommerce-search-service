@@ -58,6 +58,7 @@ Serverless:   POST - searchword - https://example.com/dev/searchword
 ```
 
 ### Setting WooCommerce
+- Install [WooCommerce](https://wordpress.org/plugins/woocommerce/) and [Elasticommerce Search Form](https://wordpress.org/plugins/elasticommerce-search-form/) Plugin vaersion 1.1 and over.
 - Open `/wp-admin/options-general.php?page=wp_elasticsearch` in your browser
 - Input Endpoint below:
 <img src="https://raw.githubusercontent.com/megumiteam/serverless-elasticommerce-search-service/master/screenshot-3.png" title="screenshot"/>
